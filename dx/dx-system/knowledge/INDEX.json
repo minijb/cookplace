@@ -1,0 +1,21 @@
+{
+  "folder": "knowledge",
+  "generated": "2026-11-10T09:40:47+08:00",
+  "items": [
+    {
+      "file": "frontmatter.md",
+      "title": "frontmatter 规范",
+      "brief": "各类 md 文件 frontmatter 的必填/可选字段定义"
+    },
+    {
+      "file": "operations.md",
+      "title": "操作语义",
+      "brief": "create/modify/delete/reindex 四类操作的行为与安全策略"
+    },
+    {
+      "file": "structure.md",
+      "title": "目录结构",
+      "brief": "dx 工作区的完整目录结构与各部分职责"
+    }
+  ]
+}

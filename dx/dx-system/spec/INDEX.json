@@ -1,0 +1,18 @@
+{
+  "folder": "spec",
+  "generated": "2026-11-10T09:42:12+08:00",
+  "items": [
+    {
+      "file": "naming.md",
+      "title": "命名与结构规范",
+      "brief": "dx id/文件夹/文件的命名与目录结构的强制规则",
+      "level": "required"
+    },
+    {
+      "file": "spec-levels.md",
+      "title": "spec 分级语义",
+      "brief": "required/default/optional 三档 level 的确切含义与偏离要求",
+      "level": "required"
+    }
+  ]
+}
