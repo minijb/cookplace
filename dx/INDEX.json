@@ -1,29 +1,7 @@
 {
   "version": 1,
-  "generated": "2026-11-10T12:32:37+08:00",
+  "generated": "2026-11-10T17:18:29+08:00",
   "units": [
-    {
-      "id": "code-review",
-      "title": "代码评审",
-      "brief": "代码合入前由他人检查变更的评审实践：核心评审要点与常用黑话术语",
-      "tags": [
-        "quality"
-      ],
-      "aliases": [
-        "评审",
-        "cr"
-      ],
-      "father": null,
-      "children": [],
-      "has": {
-        "knowledge": true,
-        "reference": true
-      },
-      "files": {
-        "knowledge": 2,
-        "reference": 0
-      }
-    },
     {
       "id": "dx-system",
       "title": "dx 知识体系",
@@ -48,57 +26,17 @@
         "reference": 1,
         "spec": 2
       }
-    },
-    {
-      "id": "release-process",
-      "title": "发布流程",
-      "brief": "从代码合入主干到全量上线的发布流程：发布检查单与灰度验证通过后全量发布的节奏",
-      "tags": [
-        "process",
-        "release"
-      ],
-      "aliases": [
-        "上线",
-        "发版"
-      ],
-      "father": null,
-      "children": [],
-      "has": {
-        "knowledge": true,
-        "reference": true,
-        "spec": true
-      },
-      "files": {
-        "knowledge": 1,
-        "reference": 0,
-        "spec": 1
-      }
     }
   ],
   "tags": {
     "meta": [
       "dx-system"
     ],
-    "process": [
-      "release-process"
-    ],
-    "quality": [
-      "code-review"
-    ],
-    "release": [
-      "release-process"
-    ],
     "system": [
       "dx-system"
     ]
   },
   "lookup": {
-    "code-review": [
-      "code-review"
-    ],
-    "cr": [
-      "code-review"
-    ],
     "dx": [
       "dx-system"
     ],
@@ -108,26 +46,8 @@
     "dx-system": [
       "dx-system"
     ],
-    "release-process": [
-      "release-process"
-    ],
-    "上线": [
-      "release-process"
-    ],
-    "代码评审": [
-      "code-review"
-    ],
-    "发布流程": [
-      "release-process"
-    ],
-    "发版": [
-      "release-process"
-    ],
     "知识单元": [
       "dx-system"
-    ],
-    "评审": [
-      "code-review"
     ]
   }
 }
