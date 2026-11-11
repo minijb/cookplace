@@ -1,0 +1,20 @@
+{
+  "folder": "reference",
+  "generated": "2026-11-11T13:33:35+08:00",
+  "items": [
+    {
+      "file": "external-style-guides.md",
+      "title": "外部风格指南清单",
+      "brief": "可参考的公开教程/文档风格指南汇总，未逐一核实最新版本",
+      "source": "见正文各条 URL",
+      "fetched": "2026-11-10"
+    },
+    {
+      "file": "tutorial-structure-sources.md",
+      "title": "教程目录结构调研来源",
+      "brief": "四种主流教程目录结构模式的外部来源汇总，本 dx 采用 A/B 两种",
+      "source": "见正文各条 URL",
+      "fetched": "2026-11-10"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "folder": "spec",
+  "generated": "2026-11-11T14:24:11+08:00",
+  "items": [
+    {
+      "file": "misc-template.md",
+      "title": "杂项条目模板",
+      "brief": "misc/cpp/ 杂项文件的标准骨架：tip / pitfall / snippet 三类",
+      "level": "default"
+    },
+    {
+      "file": "note-template.md",
+      "title": "学习笔记模板",
+      "brief": "knowledge 笔记文件的标准结构：结论先行、最小示例、坑与待深入",
+      "level": "default"
+    }
+  ]
+}

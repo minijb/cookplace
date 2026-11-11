@@ -1,0 +1,33 @@
+{
+  "folder": "knowledge",
+  "generated": "2026-11-10T20:05:19+08:00",
+  "items": [
+    {
+      "file": "layout-principles.md",
+      "title": "排版基础原则",
+      "brief": "教程排版的底层原则与常用格式约定背景",
+      "tags": [
+        "tutorial",
+        "formatting"
+      ]
+    },
+    {
+      "file": "production-pipeline.md",
+      "title": "教程制作流程",
+      "brief": "教程从选题到维护的七个阶段与各阶段产出",
+      "tags": [
+        "tutorial",
+        "process"
+      ]
+    },
+    {
+      "file": "web-research-methods.md",
+      "title": "上网查资料方法",
+      "brief": "检索渠道、来源可信度分层与交叉核实方法",
+      "tags": [
+        "tutorial",
+        "research"
+      ]
+    }
+  ]
+}

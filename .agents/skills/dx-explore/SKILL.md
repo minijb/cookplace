@@ -1,3 +1,8 @@
+---
+name: dx-explore
+description: 以渐进披露方式检索和阅读项目 dx/ 知识库，通过 INDEX.json 的 units/tags/lookup、DESC.md 和子目录索引定位知识，并区分 knowledge/reference/spec 的信任与执行级别。用户询问工作区已有 dx、主题知识、术语别名、流程或规范，或需要引用知识来源时使用；本 skill 只读，创建用 dx-create，修改删除用 dx-manage。
+---
+
 # dx-explore
 
 按渐进披露原则读取 dx 知识库，为当前任务填充上下文。**只读需要的，不要一次读入全部内容。**
@@ -20,7 +25,7 @@
 
 ## 引用格式
 
-回答中引用知识时标注来源，如 `(dx:recipe-design/knowledge/core-flow.md)`，方便用户回查。
+回答中引用知识时标注来源，如 `(dx:dx-system/knowledge/frontmatter.md)`（示例，实际按所引文件替换），方便用户回查。
 
 ## 边界
 

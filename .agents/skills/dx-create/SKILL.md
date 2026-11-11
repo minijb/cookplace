@@ -1,3 +1,8 @@
+---
+name: dx-create
+description: 在项目 dx/ 工作区创建新的 dx 知识单元，初始化 DESC.md、knowledge/reference/spec、tags/aliases/father，并重建索引。用户要求新增或创建 dx、主题、流程、规范、知识单元，或明确要求初始化某领域知识目录时使用；已有 dx 的修改、删除和索引用 dx-manage，查询已有知识用 dx-explore。
+---
+
 # dx-create
 
 在 `<项目根>/dx/` 下创建一个新的 dx 知识单元（一个文件夹 = 一个主题/流程/规范）。
@@ -15,7 +20,7 @@
 1. 创建目录 `dx/<id>/`。
 2. 按本 skill 的 `templates/DESC.template.md` 写 `dx/<id>/DESC.md`（frontmatter 必填 `id/title/brief/father`）。
 3. 创建 `knowledge/`、`reference/` 子目录（可为空；用户明确说不需要 reference 时可不建，`has` 字段会如实反映）；需要时创建 `spec/`。
-4. 初始知识文件按 `templates/knowledge|reference|spec.template.md` 的 frontmatter 格式写；模板正文均为示例，按需改写（不要复制 spec 模板尾部的 level 图例）。
+4. 初始知识文件按 `templates/knowledge|reference|spec.template.md` 的 frontmatter 格式写；模板正文均为示例，按需改写，不必保留占位说明。
 5. 运行索引脚本（在项目根执行）：
    ```bash
    python .agents/skills/dx-manage/scripts/reindex.py

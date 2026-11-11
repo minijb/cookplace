@@ -1,3 +1,8 @@
+---
+name: dx-manage
+description: 修改、重命名、移动或删除项目 dx/ 中的知识单元及其知识文件，维护父子关系、tags/aliases，并通过 scripts/reindex.py 重建、校验或修复 INDEX.json。用户要求编辑已有 dx、调整 father、增删知识文件、删除 dx、重建或检查索引时使用；新建 dx 用 dx-create，只读查询用 dx-explore。
+---
+
 # dx-manage
 
 修改、删除、重命名 dx 知识单元或其中的知识文件，并维护 `INDEX.json` 索引。

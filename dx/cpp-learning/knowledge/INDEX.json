@@ -1,0 +1,122 @@
+{
+  "folder": "knowledge",
+  "generated": "2026-11-11T15:23:41+08:00",
+  "items": [
+    {
+      "file": "async.md",
+      "title": "异步编程模型",
+      "brief": "C++17 的 future/promise/async 机制与陷阱、异常传递、与多线程和任务系统的关系，C++20 协程展望",
+      "tags": [
+        "cpp",
+        "async",
+        "concurrency"
+      ]
+    },
+    {
+      "file": "core-language.md",
+      "title": "语言核心深入",
+      "brief": "现代 C++（至 C++17）核心语言特性：RAII、移动语义、模板、lambda、constexpr",
+      "tags": [
+        "cpp",
+        "core"
+      ]
+    },
+    {
+      "file": "game-dev.md",
+      "title": "游戏开发专题",
+      "brief": "游戏循环、ECS 架构、对象生命周期与游戏多线程",
+      "tags": [
+        "cpp",
+        "gamedev"
+      ]
+    },
+    {
+      "file": "graphics-api.md",
+      "title": "图形 API 基础",
+      "brief": "渲染管线概念、OpenGL/WebGL/WebGPU 谱系与引擎向进阶入口",
+      "tags": [
+        "cpp",
+        "graphics"
+      ]
+    },
+    {
+      "file": "job-system.md",
+      "title": "游戏任务系统（Job System）",
+      "brief": "帧内并行任务系统设计：任务图与依赖、work stealing、帧同步点、数据划分与陷阱",
+      "tags": [
+        "cpp",
+        "gamedev",
+        "async",
+        "concurrency"
+      ]
+    },
+    {
+      "file": "memory-model.md",
+      "title": "C++ 内存模型",
+      "brief": "两层含义拆解：语言对象模型（存储期/生命周期/memory location）与并发内存模型（happens-before、memory_order）",
+      "tags": [
+        "cpp",
+        "memory",
+        "concurrency"
+      ]
+    },
+    {
+      "file": "memory-performance.md",
+      "title": "内存与性能优化",
+      "brief": "内存模型、对象布局、缓存友好数据设计与剖析方法",
+      "tags": [
+        "cpp",
+        "memory",
+        "performance"
+      ]
+    },
+    {
+      "file": "object-layout.md",
+      "title": "类的内存结构（对象布局）",
+      "brief": "对象布局规则：对齐与 padding、vptr/虚表、多继承与虚继承布局、RTTI 成本与观测工具",
+      "tags": [
+        "cpp",
+        "memory",
+        "object-model"
+      ]
+    },
+    {
+      "file": "roadmap.md",
+      "title": "学习路径（C++17 深入）",
+      "brief": "面向前端游戏开发工程师的五阶段学习路径与阶段产出",
+      "tags": [
+        "cpp",
+        "learning"
+      ]
+    },
+    {
+      "file": "stl-internals.md",
+      "title": "STL 容器内部结构",
+      "brief": "vector/string/deque/map/unordered_map/smart pointers 的实现级结构与开销，含 allocator 与 pmr 接入点",
+      "tags": [
+        "cpp",
+        "stl",
+        "memory"
+      ]
+    },
+    {
+      "file": "stl.md",
+      "title": "STL 深入",
+      "brief": "容器选型与复杂度、迭代器失效规则、算法与 lambda 配合",
+      "tags": [
+        "cpp",
+        "stl"
+      ]
+    },
+    {
+      "file": "unreal-engine.md",
+      "title": "Unreal Engine 基础",
+      "brief": "UE C++ 子集：对象模型与反射、GC、Gameplay 框架、容器与智能指针、线程模型与任务系统",
+      "tags": [
+        "cpp",
+        "ue",
+        "gamedev"
+      ]
+    }
+  ]
+}

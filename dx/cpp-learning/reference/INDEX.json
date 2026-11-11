@@ -1,0 +1,13 @@
+{
+  "folder": "reference",
+  "generated": "2026-11-11T14:24:11+08:00",
+  "items": [
+    {
+      "file": "learning-sources.md",
+      "title": "学习资源调研来源",
+      "brief": "本 dx 学习内容的外部来源汇总：路线图、官方文档、经典书目与教程",
+      "source": "见正文各条 URL",
+      "fetched": "2026-11-10"
+    }
+  ]
+}

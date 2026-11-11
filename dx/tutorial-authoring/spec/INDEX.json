@@ -1,0 +1,42 @@
+{
+  "folder": "spec",
+  "generated": "2026-11-11T17:38:42+08:00",
+  "items": [
+    {
+      "file": "diagrams.md",
+      "title": "图表绘制规范",
+      "brief": "关系、时序、类结构等抽象概念默认用 mermaid 绘制，含图型选择与使用规则",
+      "level": "default"
+    },
+    {
+      "file": "directory-structure.md",
+      "title": "教程目录结构规范",
+      "brief": "教程文件夹按规模二选一：小主题用编号文件式（A），大主题用部-章-课三层（B），主题杂项放 misc/，强制执行",
+      "level": "required"
+    },
+    {
+      "file": "layout.md",
+      "title": "教程基础排版规范",
+      "brief": "教程正文强制排版条目：标题层级、中英文混排、代码块、图片链接与术语",
+      "level": "required"
+    },
+    {
+      "file": "production-pipeline.md",
+      "title": "教程制作流程规范",
+      "brief": "七阶段流程的执行规则、阶段门禁与发布检查清单",
+      "level": "default"
+    },
+    {
+      "file": "research-confirm.md",
+      "title": "教程选题调研与确认规范",
+      "brief": "生成教程前必须上网详细搜索、与用户确认学习范围与深入点、按网络推荐补充章节并二次确认",
+      "level": "required"
+    },
+    {
+      "file": "web-research.md",
+      "title": "上网查资料规范",
+      "brief": "资料检索顺序、可信度评估与引用出处的执行规则",
+      "level": "default"
+    }
+  ]
+}

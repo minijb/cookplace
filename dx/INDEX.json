@@ -1,7 +1,38 @@
 {
   "version": 1,
-  "generated": "2026-11-10T17:18:29+08:00",
+  "generated": "2026-11-11T17:38:42+08:00",
   "units": [
+    {
+      "id": "cpp-learning",
+      "title": "C++ 学习（前端游戏开发方向）",
+      "brief": "面向前端游戏开发工程师的 C++17 深入学习：语言核心与对象布局、内存模型、STL 内部结构、异步任务系统、UE 与图形 API",
+      "tags": [
+        "cpp",
+        "learning",
+        "gamedev",
+        "ue",
+        "graphics"
+      ],
+      "aliases": [
+        "C++学习",
+        "学C++",
+        "cpp",
+        "c++",
+        "c++学习"
+      ],
+      "father": "tutorial-authoring",
+      "children": [],
+      "has": {
+        "knowledge": true,
+        "reference": true,
+        "spec": true
+      },
+      "files": {
+        "knowledge": 12,
+        "reference": 1,
+        "spec": 2
+      }
+    },
     {
       "id": "dx-system",
       "title": "dx 知识体系",
@@ -26,17 +57,97 @@
         "reference": 1,
         "spec": 2
       }
+    },
+    {
+      "id": "tutorial-authoring",
+      "title": "教程制作规范",
+      "brief": "规范教程的制作流程、排版、目录结构、图表绘制与资料查找方法",
+      "tags": [
+        "tutorial",
+        "process",
+        "formatting",
+        "research"
+      ],
+      "aliases": [
+        "教程",
+        "教程制作",
+        "教程规范",
+        "教程排版",
+        "写教程",
+        "查资料",
+        "目录结构",
+        "杂项"
+      ],
+      "father": null,
+      "children": [
+        "cpp-learning"
+      ],
+      "has": {
+        "knowledge": true,
+        "reference": true,
+        "spec": true
+      },
+      "files": {
+        "knowledge": 3,
+        "reference": 2,
+        "spec": 6
+      }
     }
   ],
   "tags": {
+    "cpp": [
+      "cpp-learning"
+    ],
+    "formatting": [
+      "tutorial-authoring"
+    ],
+    "gamedev": [
+      "cpp-learning"
+    ],
+    "graphics": [
+      "cpp-learning"
+    ],
+    "learning": [
+      "cpp-learning"
+    ],
     "meta": [
       "dx-system"
     ],
+    "process": [
+      "tutorial-authoring"
+    ],
+    "research": [
+      "tutorial-authoring"
+    ],
     "system": [
       "dx-system"
+    ],
+    "tutorial": [
+      "tutorial-authoring"
+    ],
+    "ue": [
+      "cpp-learning"
     ]
   },
   "lookup": {
+    "C++ 学习（前端游戏开发方向）": [
+      "cpp-learning"
+    ],
+    "C++学习": [
+      "cpp-learning"
+    ],
+    "c++": [
+      "cpp-learning"
+    ],
+    "c++学习": [
+      "cpp-learning"
+    ],
+    "cpp": [
+      "cpp-learning"
+    ],
+    "cpp-learning": [
+      "cpp-learning"
+    ],
     "dx": [
       "dx-system"
     ],
@@ -45,6 +156,39 @@
     ],
     "dx-system": [
       "dx-system"
+    ],
+    "tutorial-authoring": [
+      "tutorial-authoring"
+    ],
+    "写教程": [
+      "tutorial-authoring"
+    ],
+    "学C++": [
+      "cpp-learning"
+    ],
+    "教程": [
+      "tutorial-authoring"
+    ],
+    "教程制作": [
+      "tutorial-authoring"
+    ],
+    "教程制作规范": [
+      "tutorial-authoring"
+    ],
+    "教程排版": [
+      "tutorial-authoring"
+    ],
+    "教程规范": [
+      "tutorial-authoring"
+    ],
+    "杂项": [
+      "tutorial-authoring"
+    ],
+    "查资料": [
+      "tutorial-authoring"
+    ],
+    "目录结构": [
+      "tutorial-authoring"
     ],
     "知识单元": [
       "dx-system"
