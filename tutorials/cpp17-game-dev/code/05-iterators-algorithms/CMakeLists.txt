@@ -1,0 +1,2 @@
+add_executable(ch02_iterators_algorithms main.cpp)
+add_test(NAME ch02_iterators_algorithms COMMAND ch02_iterators_algorithms)

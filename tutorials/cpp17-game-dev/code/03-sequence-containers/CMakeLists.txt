@@ -1,0 +1,2 @@
+add_executable(ch02_sequence_containers main.cpp)
+add_test(NAME ch02_sequence_containers COMMAND ch02_sequence_containers)

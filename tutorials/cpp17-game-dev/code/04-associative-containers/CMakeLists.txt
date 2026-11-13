@@ -1,0 +1,2 @@
+add_executable(ch02_associative_containers main.cpp)
+add_test(NAME ch02_associative_containers COMMAND ch02_associative_containers)

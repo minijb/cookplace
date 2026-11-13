@@ -1,0 +1,5 @@
+add_executable(ch01_resource_manager main.cpp)
+add_executable(ch01_copy_move_benchmark benchmark.cpp)
+
+add_test(NAME ch01_resource_manager COMMAND ch01_resource_manager)
+add_test(NAME ch01_copy_move_benchmark COMMAND ch01_copy_move_benchmark)
