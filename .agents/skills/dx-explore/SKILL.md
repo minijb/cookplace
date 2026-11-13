@@ -12,7 +12,8 @@ description: 以渐进披露方式检索和阅读项目 dx/ 知识库，通过 I
 1. `dx/INDEX.json` —— 所有 dx 的 `id/tags/father/children/brief`。按 tag、brief、父子树定位候选。
 2. 用户用词含糊 → 用 `dx/INDEX.json` 的 `lookup`（id/标题/别名 → dx）对齐指向；领域黑话词（如 NIT）本身不在 lookup 里是设计内的——先路由到所属域 dx，再查它的 `knowledge/terms.md`（若存在）。
 3. 读候选 dx 的 `DESC.md`：是什么 / 作用 / 与父级关系。仍不确定时换候选或同时读多个 DESC（都很短）。
-4. 需要细节时，读对应子目录的 `INDEX.json`（每条一句话 brief）→ **最后**才读具体文件。
+4. **沿 father 链补齐上下文**：定位到的 dx 若有 `father`，同时读父 dx 的 `DESC.md`（逐级向上，都很短），理解「父管什么、子管什么」与规范归属。仅当本次任务会产出内容（写教程/回写知识）时，再按需读父 dx 相关的 `spec/`；不主动全量载入父级知识文件。
+5. 需要细节时，读对应子目录的 `INDEX.json`（每条一句话 brief）→ **最后**才读具体文件。
 
 ## 信任级别（写进上下文/结论时必须区分）
 
