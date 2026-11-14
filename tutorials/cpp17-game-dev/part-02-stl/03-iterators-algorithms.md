@@ -21,7 +21,7 @@ date: 2026-11-13
 - 系统区分迭代器、指针和引用的失效规则。
 - 安全使用非拥有的 `string_view`。
 
-完整代码位于 [迭代器与算法示例](../../code/05-iterators-algorithms/main.cpp)。
+完整代码位于 [迭代器与算法示例](../code/05-iterators-algorithms/main.cpp)。
 
 ## 1. 迭代器连接容器与算法
 

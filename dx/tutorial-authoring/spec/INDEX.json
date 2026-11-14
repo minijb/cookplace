@@ -1,6 +1,6 @@
 {
   "folder": "spec",
-  "generated": "2026-11-11T17:38:42+08:00",
+  "generated": "2026-11-14T14:47:47+08:00",
   "items": [
     {
       "file": "diagrams.md",
@@ -11,7 +11,7 @@
     {
       "file": "directory-structure.md",
       "title": "教程目录结构规范",
-      "brief": "教程文件夹按规模二选一：小主题用编号文件式（A），大主题用部-章-课三层（B），主题杂项放 misc/，强制执行",
+      "brief": "教程文件夹按规模二选一：小主题用编号文件式（A），大主题用部-课两层（B），主题杂项放 misc/，强制执行",
       "level": "required"
     },
     {

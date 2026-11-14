@@ -21,7 +21,7 @@ date: 2026-11-13
 - 使用 C++17 的 `try_emplace()`、`insert_or_assign()` 和节点句柄。
 - 使用 `stack`、`queue` 和 `priority_queue` 表达受限访问策略。
 
-完整代码位于 [关联容器示例](../../code/04-associative-containers/main.cpp)。
+完整代码位于 [关联容器示例](../code/04-associative-containers/main.cpp)。
 
 ## 1. 关联容器按“键”组织元素
 

@@ -20,7 +20,7 @@ date: 2026-11-12
 - 设计拥有与非拥有 API，并实现一个弱引用资源缓存。
 - 用可重复测量验证性能判断。
 
-完整代码位于 [资源管理示例](../../code/02-move-semantics-and-smart-pointers/main.cpp) 和 [性能测量示例](../../code/02-move-semantics-and-smart-pointers/benchmark.cpp)。
+完整代码位于 [资源管理示例](../code/02-move-semantics-and-smart-pointers/main.cpp) 和 [性能测量示例](../code/02-move-semantics-and-smart-pointers/benchmark.cpp)。
 
 ## 1. 值类别：移动为什么能发生
 

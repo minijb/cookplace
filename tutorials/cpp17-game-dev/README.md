@@ -30,17 +30,17 @@ date: 2026-11-13
 
 | 课 | 内容 | 配套代码 |
 |---|---|---|
-| [第一章（上）：现代语法与 RAII](part-01-modern-cpp/01-modern-syntax-and-raii/index.md) | `auto`、结构化绑定、`optional`、`variant`、`string_view`、RAII | [源码](code/01-modern-syntax-and-raii/main.cpp) |
-| [第一章（下）：移动语义与智能指针](part-01-modern-cpp/02-move-semantics-and-smart-pointers/index.md) | 值类别、Rule of Zero/Five、移动操作、智能指针、资源缓存与性能测量 | [源码](code/02-move-semantics-and-smart-pointers/main.cpp) |
+| [第一章（上）：现代语法与 RAII](part-01-modern-cpp/01-modern-syntax-and-raii.md) | `auto`、结构化绑定、`optional`、`variant`、`string_view`、RAII | [源码](code/01-modern-syntax-and-raii/main.cpp) |
+| [第一章（下）：移动语义与智能指针](part-01-modern-cpp/02-move-semantics-and-smart-pointers.md) | 值类别、Rule of Zero/Five、移动操作、智能指针、资源缓存与性能测量 | [源码](code/02-move-semantics-and-smart-pointers/main.cpp) |
 
 ## 第二部分：STL 深入
 
 | 课 | 内容 | 配套代码 |
 |---|---|---|
-| [第二章（上）：顺序容器与内存行为](part-02-stl/01-sequence-containers/index.md) | 容器选型、`size/capacity`、扩容、`noexcept` 与元素搬移、缓存行为 | [源码](code/03-sequence-containers/main.cpp) |
-| [第二章（中）：关联容器、哈希与适配器](part-02-stl/02-associative-containers/index.md) | 有序树、严格弱序、哈希桶与再哈希、C++17 插入接口、节点句柄、适配器 | [源码](code/04-associative-containers/main.cpp) |
-| [第二章（下）：迭代器、算法与 lambda](part-02-stl/03-iterators-algorithms/index.md) | 迭代器类别、算法契约、lambda 捕获、remove-erase、失效规则、`string_view` | [源码](code/05-iterators-algorithms/main.cpp) |
-| [第二章（实战）：游戏实体存储与性能测量](part-02-stl/04-game-entity-storage/index.md) | 实体存储与交换删除、索引方案对比、微基准、`pmr`、并行算法 | [源码](code/06-game-entity-storage/main.cpp) |
+| [第二章（上）：顺序容器与内存行为](part-02-stl/01-sequence-containers.md) | 容器选型、`size/capacity`、扩容、`noexcept` 与元素搬移、缓存行为 | [源码](code/03-sequence-containers/main.cpp) |
+| [第二章（中）：关联容器、哈希与适配器](part-02-stl/02-associative-containers.md) | 有序树、严格弱序、哈希桶与再哈希、C++17 插入接口、节点句柄、适配器 | [源码](code/04-associative-containers/main.cpp) |
+| [第二章（下）：迭代器、算法与 lambda](part-02-stl/03-iterators-algorithms.md) | 迭代器类别、算法契约、lambda 捕获、remove-erase、失效规则、`string_view` | [源码](code/05-iterators-algorithms/main.cpp) |
+| [第二章（实战）：游戏实体存储与性能测量](part-02-stl/04-game-entity-storage.md) | 实体存储与交换删除、索引方案对比、微基准、`pmr`、并行算法 | [源码](code/06-game-entity-storage/main.cpp) |
 
 ## 构建并验证示例
 

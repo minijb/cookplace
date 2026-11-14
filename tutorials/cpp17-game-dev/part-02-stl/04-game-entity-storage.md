@@ -21,7 +21,7 @@ date: 2026-11-13
 - 用 `pmr::monotonic_buffer_resource` 集中管理临时分配。
 - 检测并使用 C++17 并行算法，同时理解其正确性前提。
 
-完整代码位于 [实体存储](../../code/06-game-entity-storage/main.cpp)、[性能测量](../../code/06-game-entity-storage/benchmark.cpp)、[`pmr`](../../code/06-game-entity-storage/pmr.cpp) 和 [并行算法](../../code/06-game-entity-storage/parallel.cpp)。
+完整代码位于 [实体存储](../code/06-game-entity-storage/main.cpp)、[性能测量](../code/06-game-entity-storage/benchmark.cpp)、[`pmr`](../code/06-game-entity-storage/pmr.cpp) 和 [并行算法](../code/06-game-entity-storage/parallel.cpp)。
 
 ## 1. 从访问模式推导存储结构
 

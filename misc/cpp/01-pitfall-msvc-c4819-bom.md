@@ -13,4 +13,4 @@
 3. 或在 CMake 中为 MSVC 显式指定源码编码：`add_compile_options(/utf-8)`（同时影响执行字符集，需整体评估）。
 4. 修复后重新完整构建并跑 CTest 确认；不要依据"大部分目标能编译"判断源码未被损坏。
 
-相关：[C++17 游戏开发进阶·第二章](../../tutorials/cpp17-game-dev/part-02-stl/04-game-entity-storage/index.md)；[验证记录](../../tutorials/cpp17-game-dev/resources/ch02-research.md)
+相关：[C++17 游戏开发进阶·第二章](../../tutorials/cpp17-game-dev/part-02-stl/04-game-entity-storage.md)；[验证记录](../../tutorials/cpp17-game-dev/resources/ch02-research.md)
