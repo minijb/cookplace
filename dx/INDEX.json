@@ -1,7 +1,41 @@
 {
   "version": 1,
-  "generated": "2026-11-11T17:38:42+08:00",
+  "generated": "2026-11-14T12:52:20+08:00",
   "units": [
+    {
+      "id": "cmake-vcpkg-learning",
+      "title": "CMake + vcpkg 学习",
+      "brief": "C++ 构建与依赖管理双工具：CMake 目标模型/预设/FetchContent 与 vcpkg 清单模式/三元组/缓存/注册表，及两者工具链集成",
+      "tags": [
+        "cmake",
+        "vcpkg",
+        "cpp",
+        "learning",
+        "build-system",
+        "package-manager"
+      ],
+      "aliases": [
+        "cmake学习",
+        "学cmake",
+        "vcpkg学习",
+        "学vcpkg",
+        "cmake",
+        "vcpkg",
+        "构建系统",
+        "依赖管理",
+        "包管理"
+      ],
+      "father": "tutorial-authoring",
+      "children": [],
+      "has": {
+        "knowledge": true,
+        "reference": true
+      },
+      "files": {
+        "knowledge": 4,
+        "reference": 1
+      }
+    },
     {
       "id": "cpp-learning",
       "title": "C++ 学习（前端游戏开发方向）",
@@ -80,6 +114,7 @@
       ],
       "father": null,
       "children": [
+        "cmake-vcpkg-learning",
         "cpp-learning"
       ],
       "has": {
@@ -95,7 +130,14 @@
     }
   ],
   "tags": {
+    "build-system": [
+      "cmake-vcpkg-learning"
+    ],
+    "cmake": [
+      "cmake-vcpkg-learning"
+    ],
     "cpp": [
+      "cmake-vcpkg-learning",
       "cpp-learning"
     ],
     "formatting": [
@@ -108,10 +150,14 @@
       "cpp-learning"
     ],
     "learning": [
+      "cmake-vcpkg-learning",
       "cpp-learning"
     ],
     "meta": [
       "dx-system"
+    ],
+    "package-manager": [
+      "cmake-vcpkg-learning"
     ],
     "process": [
       "tutorial-authoring"
@@ -127,6 +173,9 @@
     ],
     "ue": [
       "cpp-learning"
+    ],
+    "vcpkg": [
+      "cmake-vcpkg-learning"
     ]
   },
   "lookup": {
@@ -136,11 +185,23 @@
     "C++学习": [
       "cpp-learning"
     ],
+    "CMake + vcpkg 学习": [
+      "cmake-vcpkg-learning"
+    ],
     "c++": [
       "cpp-learning"
     ],
     "c++学习": [
       "cpp-learning"
+    ],
+    "cmake": [
+      "cmake-vcpkg-learning"
+    ],
+    "cmake-vcpkg-learning": [
+      "cmake-vcpkg-learning"
+    ],
+    "cmake学习": [
+      "cmake-vcpkg-learning"
     ],
     "cpp": [
       "cpp-learning"
@@ -160,11 +221,29 @@
     "tutorial-authoring": [
       "tutorial-authoring"
     ],
+    "vcpkg": [
+      "cmake-vcpkg-learning"
+    ],
+    "vcpkg学习": [
+      "cmake-vcpkg-learning"
+    ],
+    "依赖管理": [
+      "cmake-vcpkg-learning"
+    ],
     "写教程": [
       "tutorial-authoring"
     ],
+    "包管理": [
+      "cmake-vcpkg-learning"
+    ],
     "学C++": [
       "cpp-learning"
+    ],
+    "学cmake": [
+      "cmake-vcpkg-learning"
+    ],
+    "学vcpkg": [
+      "cmake-vcpkg-learning"
     ],
     "教程": [
       "tutorial-authoring"
@@ -183,6 +262,9 @@
     ],
     "杂项": [
       "tutorial-authoring"
+    ],
+    "构建系统": [
+      "cmake-vcpkg-learning"
     ],
     "查资料": [
       "tutorial-authoring"

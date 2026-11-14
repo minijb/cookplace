@@ -1,0 +1,47 @@
+{
+  "folder": "knowledge",
+  "generated": "2026-11-14T12:52:20+08:00",
+  "items": [
+    {
+      "file": "cmake-core.md",
+      "title": "CMake 核心概念",
+      "brief": "CMake 的三阶段模型、目标与属性传播、依赖三方案、预设与生成器等核心知识",
+      "tags": [
+        "cmake",
+        "build-system"
+      ]
+    },
+    {
+      "file": "integration.md",
+      "title": "CMake + vcpkg 集成",
+      "brief": "CMAKE_TOOLCHAIN_FILE 接入机制、manifest 模式与 CMake 构建的联动、CI 与交叉编译组合",
+      "tags": [
+        "cmake",
+        "vcpkg",
+        "integration",
+        "toolchain"
+      ]
+    },
+    {
+      "file": "roadmap.md",
+      "title": "学习路径（CMake + vcpkg）",
+      "brief": "七阶段学习路径：CMake 基础/目标/依赖/预设 → vcpkg 入门/深入 → 集成实战，含阶段产出",
+      "tags": [
+        "cmake",
+        "vcpkg",
+        "learning",
+        "roadmap"
+      ]
+    },
+    {
+      "file": "vcpkg-core.md",
+      "title": "vcpkg 核心概念",
+      "brief": "vcpkg 的 port/ports tree、classic 与 manifest 两种模式、triplets、版本约束、双重缓存与 registries",
+      "tags": [
+        "vcpkg",
+        "package-manager",
+        "cpp"
+      ]
+    }
+  ]
+}
