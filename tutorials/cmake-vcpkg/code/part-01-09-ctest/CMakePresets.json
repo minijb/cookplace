@@ -1,0 +1,40 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "msvc-debug",
+      "displayName": "MSVC x64 Debug (Ninja)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "msvc-debug", "configurePreset": "msvc-debug" },
+    {
+      "name": "tests-only",
+      "configurePreset": "msvc-debug",
+      "targets": ["tests_sum", "tests_twice"]
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "msvc-debug",
+      "configurePreset": "msvc-debug",
+      "output": { "outputOnFailure": true }
+    }
+  ],
+  "workflowPresets": [
+    {
+      "name": "msvc-debug-all",
+      "steps": [
+        { "type": "configure", "name": "msvc-debug" },
+        { "type": "build", "name": "msvc-debug" },
+        { "type": "test", "name": "msvc-debug" }
+      ]
+    }
+  ]
+}
