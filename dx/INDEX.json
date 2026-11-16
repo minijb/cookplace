@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-11-14T12:52:20+08:00",
+  "generated": "2026-11-16T19:44:19+08:00",
   "units": [
     {
       "id": "cmake-vcpkg-learning",
@@ -93,6 +93,36 @@
       }
     },
     {
+      "id": "opengl-tutorial",
+      "title": "OpenGL 教学（含 Compute Shader）",
+      "brief": "面向 OpenGL 与 Compute Shader 初学者的系统完整教学路线，基础概念、关键步骤与首次出现的 API 需稍详细讲解",
+      "tags": [
+        "opengl",
+        "graphics",
+        "glsl",
+        "compute-shader",
+        "tutorial"
+      ],
+      "aliases": [
+        "opengl教学",
+        "OpenGL教学",
+        "opengl系统教程",
+        "学opengl进阶",
+        "计算着色器教学",
+        "compute shader教学"
+      ],
+      "father": "tutorial-authoring",
+      "children": [],
+      "has": {
+        "knowledge": true,
+        "reference": true
+      },
+      "files": {
+        "knowledge": 1,
+        "reference": 1
+      }
+    },
+    {
       "id": "tutorial-authoring",
       "title": "教程制作规范",
       "brief": "规范教程的制作流程、排版、目录结构、图表绘制与资料查找方法",
@@ -115,7 +145,8 @@
       "father": null,
       "children": [
         "cmake-vcpkg-learning",
-        "cpp-learning"
+        "cpp-learning",
+        "opengl-tutorial"
       ],
       "has": {
         "knowledge": true,
@@ -136,6 +167,9 @@
     "cmake": [
       "cmake-vcpkg-learning"
     ],
+    "compute-shader": [
+      "opengl-tutorial"
+    ],
     "cpp": [
       "cmake-vcpkg-learning",
       "cpp-learning"
@@ -146,8 +180,12 @@
     "gamedev": [
       "cpp-learning"
     ],
+    "glsl": [
+      "opengl-tutorial"
+    ],
     "graphics": [
-      "cpp-learning"
+      "cpp-learning",
+      "opengl-tutorial"
     ],
     "learning": [
       "cmake-vcpkg-learning",
@@ -155,6 +193,9 @@
     ],
     "meta": [
       "dx-system"
+    ],
+    "opengl": [
+      "opengl-tutorial"
     ],
     "package-manager": [
       "cmake-vcpkg-learning"
@@ -169,6 +210,7 @@
       "dx-system"
     ],
     "tutorial": [
+      "opengl-tutorial",
       "tutorial-authoring"
     ],
     "ue": [
@@ -188,6 +230,12 @@
     "CMake + vcpkg 学习": [
       "cmake-vcpkg-learning"
     ],
+    "OpenGL 教学（含 Compute Shader）": [
+      "opengl-tutorial"
+    ],
+    "OpenGL教学": [
+      "opengl-tutorial"
+    ],
     "c++": [
       "cpp-learning"
     ],
@@ -203,6 +251,9 @@
     "cmake学习": [
       "cmake-vcpkg-learning"
     ],
+    "compute shader教学": [
+      "opengl-tutorial"
+    ],
     "cpp": [
       "cpp-learning"
     ],
@@ -217,6 +268,15 @@
     ],
     "dx-system": [
       "dx-system"
+    ],
+    "opengl-tutorial": [
+      "opengl-tutorial"
+    ],
+    "opengl教学": [
+      "opengl-tutorial"
+    ],
+    "opengl系统教程": [
+      "opengl-tutorial"
     ],
     "tutorial-authoring": [
       "tutorial-authoring"
@@ -241,6 +301,9 @@
     ],
     "学cmake": [
       "cmake-vcpkg-learning"
+    ],
+    "学opengl进阶": [
+      "opengl-tutorial"
     ],
     "学vcpkg": [
       "cmake-vcpkg-learning"
@@ -274,6 +337,9 @@
     ],
     "知识单元": [
       "dx-system"
+    ],
+    "计算着色器教学": [
+      "opengl-tutorial"
     ]
   }
 }

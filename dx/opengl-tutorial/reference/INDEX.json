@@ -1,0 +1,13 @@
+{
+  "folder": "reference",
+  "generated": "2026-11-16T19:21:17+08:00",
+  "items": [
+    {
+      "file": "research-sources.md",
+      "title": "OpenGL 教学联网调研与来源",
+      "brief": "用于确定课程范围、版本基线、Compute Shader 核心主题和常见错误的官方及第三方资料记录",
+      "source": "Khronos OpenGL Registry、Khronos OpenGL Wiki、LearnOpenGL 等，完整 URL 见正文",
+      "fetched": "2026-11-16"
+    }
+  ]
+}

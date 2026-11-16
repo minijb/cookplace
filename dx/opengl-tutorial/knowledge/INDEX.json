@@ -1,0 +1,18 @@
+{
+  "folder": "knowledge",
+  "generated": "2026-11-16T19:21:17+08:00",
+  "items": [
+    {
+      "file": "curriculum.md",
+      "title": "OpenGL 与 Compute Shader 系统教学大纲",
+      "brief": "从基础快速重建、进阶渲染和现代 OpenGL 工程实践，到 Compute Shader 执行模型、同步与综合项目的完整有序课程表",
+      "tags": [
+        "opengl",
+        "graphics",
+        "glsl",
+        "compute-shader",
+        "curriculum"
+      ]
+    }
+  ]
+}
