@@ -112,7 +112,7 @@ capstone（part-03/02）要 Debug/Release 两套预设，直白写法是复制�
       "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "CMAKE_TOOLCHAIN_FILE": "C:/dev/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       }
     },
@@ -123,7 +123,7 @@ capstone（part-03/02）要 Debug/Release 两套预设，直白写法是复制�
       "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
-        "CMAKE_TOOLCHAIN_FILE": "C:/dev/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       }
     }
@@ -143,7 +143,7 @@ capstone（part-03/02）要 Debug/Release 两套预设，直白写法是复制�
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
-        "CMAKE_TOOLCHAIN_FILE": "C:/dev/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
       }
     },
@@ -167,7 +167,7 @@ capstone（part-03/02）要 Debug/Release 两套预设，直白写法是复制�
 
 - 字段名是 `inherits`（复数，可接数组实现多继承）；`hidden: true` 的预设不出现在 `cmake --list-presets` 里，只能被继承——类比 JS 里不 `export` 的基类。
 - `cacheVariables` **按键合并**：基类给 toolchain、子类给 `CMAKE_BUILD_TYPE`，结果两者都有；同键则子覆盖父。`generator`、`binaryDir` 等其余字段子类写了就整体覆盖、没写就沿用基类。
-- toolchain 路径这类个人差异（`C:/dev/vcpkg` vs `D:/tools/vcpkg`）不要写死进共享文件：改用 `$env{VCPKG_ROOT}` 引用环境变量，或把个人预设放进不提交的 `CMakeUserPresets.json`，子预设写 `"inherits": ["base", "local"]` 叠加。
+- 上例已用 `$env{VCPKG_ROOT}` 引环境变量（presets schema ≥ v3 支持 `$env{}`）：vcpkg 装在哪台机器、哪个目录，由第 01 课设置的 `VCPKG_ROOT` 决定，共享文件里零个人路径。另一条路是 `CMakeUserPresets.json`（不提交），子预设写 `"inherits": ["base", "local"]` 叠加个人预设。
 
 > ⚠️ 上面的重构写法已在本机验证：`cmake --list-presets` 只列出两个子预设（`base` 被隐藏），configure 后 cache 中 `CMAKE_BUILD_TYPE`（子类）与 `CMAKE_TOOLCHAIN_FILE`（基类）均合并生效，全链路 ctest `1/1 Passed`。
 

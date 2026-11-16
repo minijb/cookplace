@@ -44,7 +44,13 @@ cd C:\dev\vcpkg
 .\bootstrap-vcpkg.bat
 ```
 
-5. 把 `C:\dev\vcpkg` 加入 PATH（系统设置 → 环境变量），重开终端
+5. 把 vcpkg 目录设为用户级环境变量 `VCPKG_ROOT`，并加入 PATH（重开终端生效）。`VCPKG_ROOT` 是官方推荐的锚点：后续所有 preset 都用 `$env{VCPKG_ROOT}` 引用它，vcpkg 装在哪个目录都不影响共享配置：
+
+```powershell
+# <你的vcpkg目录> 替换为实际路径，如 C:\dev\vcpkg
+[Environment]::SetEnvironmentVariable('VCPKG_ROOT', '<你的vcpkg目录>', 'User')
+[Environment]::SetEnvironmentVariable('Path', $env:Path + ';<你的vcpkg目录>', 'User')
+```
 
 > ⚠️ bootstrap 需要从 GitHub 下载 vcpkg 主程序；失败基本都是网络问题，重跑一次 `.\bootstrap-vcpkg.bat` 即可，已下载的部分不会重复下载。
 
@@ -58,6 +64,9 @@ cmake version 3.29.2
 
 PS> vcpkg version
 vcpkg package management program version 2026-10-29-139f2e53438b1529e178f6295bc563f4e0de734f
+
+PS> $env:VCPKG_ROOT          # 应输出你的 vcpkg 目录
+C:\dev\vcpkg
 
 PS> & "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"   # 临时进入 MSVC 环境
 PS> cl

@@ -41,7 +41,7 @@ vcpkg 负责「库从哪来」，CMake 负责「怎么编」，VSCode 负责「�
 
 ## 示例代码与验证状态
 
-全部示例集中在 [code/](code/README.md)，每个目录对应一课，均可独立构建。本系列所有命令与代码已于 2026-11-14 在 Windows 11 + 上述环境逐个跑通（含毕业项目的 800×600 窗口）。构建产物（`build/`、`vcpkg_installed/`）不入库，进 `.gitignore`。
+全部示例集中在 [code/](code/README.md)，每个目录对应一课，均可独立构建。本系列所有命令与代码已于 2026-11-14 在 Windows 11 + 上述环境逐个跑通（含毕业项目的 800×600 窗口）；2026-11-16 修订 part-03（presets 改用 `VCPKG_ROOT` 环境变量、毕业项目依赖升级为 glfw3 + glm + glad features）并干净复验构建通过。构建产物（`build/`、`vcpkg_installed/`）不入库，进 `.gitignore`。
 
 ## 阅读约定
 

@@ -1,0 +1,5 @@
+# 构建产物不入库（README 承诺）：删掉即可完整重置
+build/
+out/
+vcpkg_installed/
+.cache/

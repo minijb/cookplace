@@ -16,8 +16,8 @@ C++ 工具链学习中「构建 + 依赖」方向的知识单元：CMake（构�
 - 知识域分组：
   - CMake：`knowledge/cmake-core.md`
   - vcpkg：`knowledge/vcpkg-core.md`
-  - 两者集成（toolchain/find_package/交叉编译）：`knowledge/integration.md`
-- 外部资源：`reference/learning-sources.md`（2026-11-14 调研，URL 已验证可达性）
+  - 两者集成（toolchain/find_package/VSCode 实战/交叉编译）：`knowledge/integration.md`
+- 外部资源：`reference/learning-sources.md`（2026-11-14 调研，URL 已验证可达性；2026-11-16 围绕 VSCode 集成实战二次补充并核实内容）
 
 ## 与父级的关系
 父 dx 为 tutorial-authoring（教程制作规范）。本 dx 是其在「CMake + vcpkg 学习」领域的具体化：产出遵循父 dx 的排版与目录结构规范。父 dx 管「怎么写」，本 dx 管「学什么、学多深」。
