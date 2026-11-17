@@ -32,6 +32,10 @@ glm::vec2 ndcToWindow(const glm::vec2& ndc, float width, float height) {
     return (ndc + glm::vec2{1.0F}) * 0.5F * glm::vec2{width, height};
 }
 
+glm::vec2 windowToNdc(const glm::vec2& window, float width, float height) {
+    return window / glm::vec2{width, height} * 2.0F - glm::vec2{1.0F};
+}
+
 } // namespace
 
 int main() {
@@ -88,6 +92,34 @@ int main() {
         expectNear(upperRight.y, 600.0F, "viewport upper-right y");
         expectNear(center.x, 400.0F, "viewport center x");
         expectNear(center.y, 300.0F, "viewport center y");
+        const glm::vec2 centerNdc = windowToNdc(center, 800.0F, 600.0F);
+        expectNear(centerNdc.x, 0.0F, "window center back to NDC x");
+        expectNear(centerNdc.y, 0.0F, "window center back to NDC y");
+
+        // 与正文一致的完整数值示例：Local → World → View → Clip → NDC → Window。
+        const glm::mat4 workedModel =
+            glm::translate(glm::mat4{1.0F}, glm::vec3{0.5F, 0.0F, 0.0F});
+        const glm::vec4 workedLocal{0.5F, 0.0F, 0.0F, 1.0F};
+        const glm::vec4 workedWorld = workedModel * workedLocal;
+        expectVec3(glm::vec3{workedWorld}, {1.0F, 0.0F, 0.0F}, "worked world position");
+        const glm::vec4 workedView = view * workedWorld;
+        expectVec3(glm::vec3{workedView}, {1.0F, 0.0F, -3.0F}, "worked view position");
+        const glm::vec4 workedClip = projection * workedView;
+        expectNear(workedClip.x, 1.8107F, "worked clip x");
+        expectNear(workedClip.z, 2.8058F, "worked clip z");
+        expectNear(workedClip.w, 3.0F, "worked clip w");
+        const glm::vec3 workedNdc = ndcFromClip(workedClip);
+        expectVec3(workedNdc, {0.6036F, 0.0F, 0.9353F}, "worked NDC");
+        const glm::vec2 workedWindow = ndcToWindow(
+            glm::vec2{workedNdc}, 800.0F, 600.0F);
+        expectNear(workedWindow.x, 641.4213F, "worked window x", 0.001F);
+        expectNear(workedWindow.y, 300.0F, "worked window y");
+        const glm::vec2 workedBackToNdc = windowToNdc(workedWindow, 800.0F, 600.0F);
+        expectNear(workedBackToNdc.x, workedNdc.x, "worked inverse viewport x");
+        expectNear(workedBackToNdc.y, workedNdc.y, "worked inverse viewport y");
+        printVec3("Worked example NDC", workedNdc);
+        std::printf(
+            "Worked example window: (%.4f, %.4f)\n", workedWindow.x, workedWindow.y);
 
         std::printf("NDC (0, 0) maps to window (%.1f, %.1f)\n", center.x, center.y);
         std::puts("All chapter 06 coordinate checks passed.");

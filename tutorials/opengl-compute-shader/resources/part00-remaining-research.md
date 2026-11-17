@@ -76,6 +76,7 @@ date: 2026-11-16
 2. `lookAtRH` 使用右手 View 约定；Camera 前方为 View Space 负 Z。
 3. `perspectiveRH_NO` 对应右手投影与 OpenGL `-1..1` NDC 深度范围。
 4. Clip Space 需要除以 `w` 才成为 NDC；Viewport 再把 NDC 映射到 Framebuffer 区域。
+5. 用户反馈对坐标转换/映射不理解，因此本章后续补充坐标系三要素、转换与移动的区别、NDC/Window 双向映射、完整数值示例和逐空间排查方法；新增内容沿用上述官方坐标变换与管线来源。
 
 ### 来源
 
@@ -138,6 +139,11 @@ date: 2026-11-16
 - 初次 Ninja 配置选中 Clang 18.1.8，与当前 Visual Studio STL 不兼容；最终使用受支持的 MSVC，并显式补齐 Ninja、Windows SDK 和用户 vcpkg 路径。
 - 第五章测试发现两种矩阵顺序的预期值漏写 Y/Z 平移；正文和代码已统一改为 `(12,20,30)` 与 `(22,40,60)`。
 - 第六章测试发现手算 NDC 预期值时漏算透视常数项的数量级；已按公式修正并通过 Near/Far Plane 等全部断言。
+- 第六章扩充坐标映射内容时，新增 Local → Window 的完整数值示例及 Window → NDC 反向映射断言，复验要求见下方补充记录。
+
+### 第六章映射内容补充验证
+
+2026-11-17 使用同一 Windows 11 + MSVC 环境重新构建并运行 `ch06_coordinate_examples`，CTest 通过。新增断言覆盖完整链各阶段、`clip.w`、NDC `(0.603553,0,0.935269)`、窗口坐标 `(641.4213,300)` 以及 Window → NDC 反向映射。
 - 第七章日志审查发现 Buffer 在实例化前设置标签会产生 `GL_INVALID_VALUE`；已改为绑定并分配存储后再调用 `glObjectLabel`，同时增强日志断言。
 
 其他操作系统、GPU、GCC 和 Clang 工具链未在本次验证中覆盖，正文不作已验证声明。
