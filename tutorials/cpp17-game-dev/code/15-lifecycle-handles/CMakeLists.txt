@@ -1,0 +1,2 @@
+add_executable(ch04_lifecycle_handles main.cpp)
+add_test(NAME ch04_lifecycle_handles COMMAND ch04_lifecycle_handles)

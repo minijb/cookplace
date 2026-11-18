@@ -29,6 +29,7 @@ tags: [cpp, gamedev, async, concurrency]
 ## 典型陷阱
 - join 嵌套死锁：worker 内同步等待另一任务，应改为依赖声明或 continuation。
 - 忘记 join → 读到未完成数据；任务线程异常被吞 → 仿 future 的异常传递机制（见 `dx:cpp-learning/knowledge/async.md`）。
+- 实测确认（教程 part-04，含教学版任务系统实现）：依赖计数 fork/join（完成时对后继 fetch_sub，减到 0 入队）+ 每 worker mutex 双端队列近似 work stealing（本端 LIFO、他端 FIFO），2000 小任务全部恰好执行一次；生产实现的无锁版本是 Chase-Lev 队列，结构与方向同构。
 
 ## UE 对应实现
 - TaskGraph：上一代 job manager；Tasks System（UE5）官方定位「improves on the TaskGraph」，两者共用同一调度后端（调度器 + worker 线程）：prerequisites 依赖 DAG、嵌套任务（父任务随嵌套全部完成才完成）、Pipe 串行链（近似 green thread）、五档任务优先级；UE5.5 起 oversubscription（唤醒 standby 线程）替代 busy-waiting。ParallelFor 做循环并行。详见 `dx:cpp-learning/knowledge/unreal-engine.md`。

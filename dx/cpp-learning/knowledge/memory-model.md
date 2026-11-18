@@ -27,7 +27,8 @@ tags: [cpp, memory, concurrency]
 - 游戏场景映射：job system 提交任务 = release store 任务指针，worker = acquire load；共享计数用 relaxed + 独立同步。
 
 ## 观测与验证工具
-- TSan（-fsanitize=thread）查数据竞争；Relacy/loom 式模型检验（进阶）。
+- TSan（-fsanitize=thread）查数据竞争；Relacy/loom 式模型检验（进阶）。MSVC 自 VS 2022 起实验性支持 `/fsanitize=thread`（x64）。含数据竞争的演示程序不应进 CTest（UB 不可断言），教程做法是编译但不注册测试。
+- 实测确认（教程 part-03）：同 cache line 双计数器 2×10⁶ 次 fetch_add 用时 48ms，`alignas(64)` 填充后 14ms——并行写的热点变量各占一条 line，收益稳定但比例随机器而异，不可写成固定加速比。
 
 ## 待深入
 - `std::launder` 与指针透明性、fences（atomic_thread_fence）、 Out-of-Thin-Air 问题的现实影响

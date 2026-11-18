@@ -13,9 +13,10 @@ tags: [cpp, async, concurrency]
 - `std::packaged_task`：把可调用体包成可手动执行、结果自动送进 future 的对象，适合自建任务队列。
 
 ## 关键陷阱
-- `std::async` 返回的 future 析构时会**阻塞等待任务完成**（标准规定的 join 语义）——future 提前离开作用域等于同步调用。
+- `std::async` 返回的 future 析构时会**阻塞等待任务完成**（标准规定的 join 语义）——future 提前离开作用域等于同步调用。实测确认（教程 part-03）：两个各睡 100ms 的任务以「丢弃返回值」方式发起，总耗时 200ms 完全串行。MSVC /W4 会对丢弃 async 返回值发 C4858 警告。
 - `deferred` 的 future 析构则不执行任务（任务被丢弃）。
 - 默认 policy 下是否真的开线程由实现裁量，行为不可控；帧内高频路径慎用 std::async。
+- 手写线程池的实测结构（教程 part-03）：`packaged_task` 做类型擦除、`submit` 返回 future、worker 谓词版 wait、退出条件「stop 且队列空」（析构不丢任务）、锁外执行任务。
 
 ## 异常传递
 - 任务线程的未捕获异常经 promise 存入 future，`get()` 时在消费线程重抛；不 get 就永久吞掉——异步路径必须显式消费结果。

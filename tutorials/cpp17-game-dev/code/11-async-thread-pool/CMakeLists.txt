@@ -1,0 +1,2 @@
+add_executable(ch03_async_thread_pool main.cpp)
+add_test(NAME ch03_async_thread_pool COMMAND ch03_async_thread_pool)
