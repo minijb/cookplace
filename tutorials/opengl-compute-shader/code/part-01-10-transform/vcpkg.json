@@ -1,0 +1,16 @@
+{
+  "name": "part-01-10-transform",
+  "version-string": "0.1.0",
+  "builtin-baseline": "91f0baffae4e06a68a961d7f6493e8a1ca6775eb",
+  "dependencies": [
+    "glfw3",
+    {
+      "name": "glad",
+      "features": [
+        "gl-api-43",
+        "loader"
+      ]
+    },
+    "glm"
+  ]
+}
