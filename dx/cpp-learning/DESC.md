@@ -16,7 +16,7 @@ father: tutorial-authoring
 ## 作用
 - 学习路径：按 `dx:cpp-learning/knowledge/roadmap.md` 的五阶段推进
 - 知识域分组：
-  - 语言核心：`core-language.md`；内存底层：`object-layout.md`（类内存结构）、`memory-model.md`（语言/并发内存模型）、`stl-internals.md`（容器内部）、`memory-performance.md`（优化）
+  - 语言核心：`core-language.md`、`type-conversion.md`（类型转换）；内存底层：`object-layout.md`（类内存结构）、`memory-model.md`（语言/并发内存模型）、`stl-internals.md`（容器内部）、`memory-performance.md`（优化）
   - STL：`stl.md`；异步与任务：`async.md`、`job-system.md`；游戏开发专题：`game-dev.md`
   - UE：`unreal-engine.md`；图形 API：`graphics-api.md`
 - 学习产出落库：确认的结论按 `dx:cpp-learning/spec/note-template.md` 回写 knowledge/；杂项（技巧/坑/片段）按 `dx:cpp-learning/spec/misc-template.md` 写入项目 `misc/cpp/`

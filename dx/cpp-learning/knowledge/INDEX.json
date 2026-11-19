@@ -1,6 +1,6 @@
 {
   "folder": "knowledge",
-  "generated": "2026-11-11T15:23:41+08:00",
+  "generated": "2026-11-19T16:14:01+08:00",
   "items": [
     {
       "file": "async.md",
@@ -106,6 +106,16 @@
       "tags": [
         "cpp",
         "stl"
+      ]
+    },
+    {
+      "file": "type-conversion.md",
+      "title": "类型转换",
+      "brief": "C++17 类型转换全貌：隐式转换规则、用户自定义转换与 explicit、命名 cast 四剑客、dynamic_cast 实现、类型双关与 UE 反射 Cast",
+      "tags": [
+        "cpp",
+        "core",
+        "type-system"
       ]
     },
     {
