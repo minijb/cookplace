@@ -45,6 +45,14 @@
 - `part-01-assets/`：棋盘和渐变 PPM 测试纹理。
 - 共享代码不属于额外一课；每课工程通过相对 Include 路径复用它，仍有独立构建与测试入口。
 
+## Part 02 示例
+
+| 目录 | 可执行文件 | 正常结果与交互 |
+|---|---|---|
+| `part-02-01-lighting-basics` | `part02_01_lighting_basics` | 漫反射八面体与光源标记；`N` 切换 Normal Matrix；`V` 显示法线 |
+
+Part 02 复用 `part-01-common/gl_common.hpp` 中的窗口、参数解析、Shader 和 Uniform 辅助函数；法线八面体数据保留在本课源码内，便于直接阅读。
+
 ## 构建任意示例
 
 进入某个示例目录，例如：
@@ -70,7 +78,13 @@ python tutorials/opengl-compute-shader/code/test-part01.py
 python tutorials/opengl-compute-shader/code/test-part01.py --clean
 ```
 
-脚本要求终端已初始化 C++ 编译器环境，并正确设置 `VCPKG_ROOT`。任一工程失败时脚本会停止并保留错误日志。
+从仓库根目录验证当前已完成的 Part 02 示例：
+
+```powershell
+python tutorials/opengl-compute-shader/code/test-part02.py
+```
+
+这些脚本要求终端已初始化 C++ 编译器环境，并正确设置 `VCPKG_ROOT`。任一工程失败时脚本会停止并保留错误日志。
 
 ## 手动运行
 
@@ -87,7 +101,7 @@ cd tutorials/opengl-compute-shader/code/part-01-12-camera
 .\build\debug\part01_12_camera.exe
 ```
 
-Linux 下通常去掉 `.exe`。所有 Part 01 示例也支持：
+Linux 下通常去掉 `.exe`。本课程窗口示例也支持：
 
 ```powershell
 .\build\debug\<目标名>.exe --hidden --max-frames 2
@@ -99,5 +113,5 @@ Linux 下通常去掉 `.exe`。所有 Part 01 示例也支持：
 
 - CTest 验证配置、编译、Context 创建、Shader 编译链接和 Draw Call 能完成。
 - 隐藏窗口测试不验证画面美观，也不模拟鼠标、键盘和不同窗口尺寸。
-- 纹理方向、插值、Camera 手感、Depth/Culling 的视觉差异请按课文手动检查。
-- 具体平台验证结果见 [Part 00 记录](../resources/part00-remaining-research.md)与 [Part 01 调研记录](../resources/part01-research.md)。
+- 纹理方向、插值、Camera 手感、Depth/Culling 与 Normal Matrix 的视觉差异请按课文手动检查。
+- 具体平台验证结果见 [Part 00 记录](../resources/part00-remaining-research.md)、[Part 01 调研记录](../resources/part01-research.md)与 [Part 02 进度记录](../resources/part02-research.md)。

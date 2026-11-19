@@ -49,6 +49,12 @@
 | 1.12 Camera | [LearnOpenGL：Camera](https://learnopengl.com/Getting-started/Camera)、[GLFW 输入指南](https://www.glfw.org/docs/latest/input_guide.html) |
 | 1.13 Depth 与 Culling | [LearnOpenGL：Depth Testing](https://learnopengl.com/Advanced-OpenGL/Depth-testing)、[Face Culling](https://learnopengl.com/Advanced-OpenGL/Face-culling) |
 
+## Part 02 逐课补充阅读
+
+| 课 | 推荐阅读 |
+|---|---|
+| 2.1 颜色、法线与光照基本量 | [LearnOpenGL：Colors](https://learnopengl.com/Lighting/Colors)、[LearnOpenGL：Basic Lighting](https://learnopengl.com/Lighting/Basic-Lighting)、[Song Ho Ahn：Normal Vector Transformation](https://www.songho.ca/opengl/gl_normaltransform.html) |
+
 ## 后续 Compute Shader 预习
 
 - [Khronos Compute Shader](https://wikis.khronos.org/opengl/Compute_Shader)：Dispatch、Workgroup、Shared Memory 和同步概念。
@@ -58,6 +64,7 @@
 ## 本目录记录
 
 - [Part 01 调研与写作范围](part01-research.md)：课程来源、章节覆盖、图像与验证说明。
+- [Part 02 调研、进度与验证](part02-research.md)：光照与模型课程的来源、已完成课程和验证边界。
 - [第 0 部第 1 课调研](ch01-research.md)。
 - [第 0 部第 2 课调研](ch02-research.md)。
 - [第 0 部第 3～7 课调研与验证](part00-remaining-research.md)。

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <marker id="arrow-cyan" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#22d3ee"/></marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#fb923c"/></marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#4ade80"/></marker>
+  </defs>
+  <rect width="1200" height="675" fill="#0f172a"/>
+  <text x="55" y="58" fill="#e5e7eb" font-size="34" font-weight="700" font-family="Microsoft YaHei, Segoe UI, sans-serif">颜色、法线与漫反射</text>
+  <text x="55" y="94" fill="#a5b4fc" font-size="20" font-family="Microsoft YaHei, Segoe UI, sans-serif">表面朝向决定亮度，法线必须随表面正确变换</text>
+
+  <rect x="45" y="130" width="340" height="220" rx="16" fill="#172554" stroke="#60a5fa" stroke-width="2"/>
+  <text x="215" y="172" fill="#e5e7eb" font-size="25" text-anchor="middle" font-weight="600" font-family="Microsoft YaHei, Segoe UI, sans-serif">RGB 分量相乘</text>
+  <text x="75" y="215" fill="#fda4af" font-size="21" font-family="Consolas, monospace">object = (1.0, 0.5, 0.31)</text>
+  <text x="75" y="252" fill="#fde68a" font-size="21" font-family="Consolas, monospace">light  = (1.0, 1.0, 1.0)</text>
+  <text x="75" y="300" fill="#e5e7eb" font-size="21" font-family="Consolas, monospace">color  = object × light</text>
+  <text x="75" y="330" fill="#94a3b8" font-size="17" font-family="Microsoft YaHei, Segoe UI, sans-serif">逐通道控制表面反射的近似</text>
+
+  <rect x="430" y="130" width="340" height="220" rx="16" fill="#172554" stroke="#fb923c" stroke-width="2"/>
+  <text x="600" y="172" fill="#e5e7eb" font-size="25" text-anchor="middle" font-weight="600" font-family="Microsoft YaHei, Segoe UI, sans-serif">法线与光线方向</text>
+  <line x1="475" y1="305" x2="725" y2="305" stroke="#94a3b8" stroke-width="5"/>
+  <line x1="570" y1="305" x2="570" y2="205" stroke="#fb923c" stroke-width="4" marker-end="url(#arrow-orange)"/>
+  <line x1="570" y1="305" x2="675" y2="215" stroke="#22d3ee" stroke-width="4" marker-end="url(#arrow-cyan)"/>
+  <text x="548" y="198" fill="#fb923c" font-size="21" font-family="Consolas, monospace">N</text>
+  <text x="687" y="211" fill="#22d3ee" font-size="21" font-family="Consolas, monospace">L</text>
+  <text x="600" y="334" fill="#e5e7eb" font-size="19" text-anchor="middle" font-family="Consolas, monospace">diffuse = max(dot(N,L), 0)</text>
+
+  <rect x="815" y="130" width="340" height="220" rx="16" fill="#172554" stroke="#4ade80" stroke-width="2"/>
+  <text x="985" y="172" fill="#e5e7eb" font-size="25" text-anchor="middle" font-weight="600" font-family="Microsoft YaHei, Segoe UI, sans-serif">法线变换</text>
+  <line x1="860" y1="298" x2="970" y2="298" stroke="#94a3b8" stroke-width="4"/>
+  <line x1="915" y1="298" x2="915" y2="230" stroke="#fb923c" stroke-width="4" marker-end="url(#arrow-orange)"/>
+  <line x1="1010" y1="315" x2="1110" y2="285" stroke="#94a3b8" stroke-width="4"/>
+  <line x1="1060" y1="300" x2="1035" y2="225" stroke="#4ade80" stroke-width="4" marker-end="url(#arrow-green)"/>
+  <text x="865" y="333" fill="#94a3b8" font-size="16" font-family="Microsoft YaHei, Segoe UI, sans-serif">原表面</text>
+  <text x="1010" y="345" fill="#94a3b8" font-size="16" font-family="Microsoft YaHei, Segoe UI, sans-serif">非均匀缩放后</text>
+
+  <rect x="160" y="410" width="880" height="155" rx="18" fill="#111c36" stroke="#334155" stroke-width="2"/>
+  <text x="600" y="455" fill="#e5e7eb" font-size="25" text-anchor="middle" font-weight="600" font-family="Microsoft YaHei, Segoe UI, sans-serif">CPU：Model → World Position + Normal Matrix</text>
+  <line x1="300" y1="490" x2="450" y2="490" stroke="#22d3ee" stroke-width="3" marker-end="url(#arrow-cyan)"/>
+  <line x1="750" y1="490" x2="900" y2="490" stroke="#22d3ee" stroke-width="3" marker-end="url(#arrow-cyan)"/>
+  <text x="250" y="500" fill="#a5b4fc" font-size="20" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, sans-serif">顶点位置与法线</text>
+  <text x="600" y="500" fill="#a5b4fc" font-size="20" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, sans-serif">Vertex Shader → 插值</text>
+  <text x="965" y="500" fill="#a5b4fc" font-size="20" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, sans-serif">Fragment Shader 着色</text>
+  <text x="600" y="543" fill="#4ade80" font-size="21" text-anchor="middle" font-family="Consolas, monospace">NormalMatrix = transpose(inverse(mat3(Model)))</text>
+
+  <text x="600" y="620" fill="#e5e7eb" font-size="20" text-anchor="middle" font-family="Microsoft YaHei, Segoe UI, sans-serif">本课只计算漫反射；Ambient、Specular 与完整 Phong 在下一课组合</text>
+  <text x="55" y="655" fill="#64748b" font-size="17" font-family="Microsoft YaHei, Segoe UI, sans-serif">OpenGL 光照与模型 · Part 02</text>
+</svg>
