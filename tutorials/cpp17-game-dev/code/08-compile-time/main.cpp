@@ -81,6 +81,26 @@ static_assert(!has_size<int>::value, "int 没有 size()");
 static_assert(is_one_of<float, int, float, double>::value, "float 在集合中");
 static_assert(!is_one_of<char, int, float>::value, "char 不在集合中");
 
+// void_t 的意义：抹掉返回类型差异，只问「能不能调」。反证：去掉 void_t，
+// 特化只匹配「size() 返回类型恰好是 void」的类型，vector 反而不命中。
+struct Weird { void size(); };
+template <typename, typename = void>
+struct only_void_size : std::false_type {};
+template <typename T>
+struct only_void_size<T, decltype(std::declval<T&>().size())> : std::true_type {};
+static_assert(only_void_size<Weird>::value, "size() 返回 void，恰好对上");
+static_assert(!only_void_size<std::vector<int>>::value, "vector 不加 void_t 反而不命中");
+
+// void_t 可放多个探针，全部合法才算命中。
+template <typename, typename = void>
+struct sized_and_iterable : std::false_type {};
+template <typename T>
+struct sized_and_iterable<T, std::void_t<
+    decltype(std::declval<T&>().size()),
+    decltype(std::declval<T&>().begin())>> : std::true_type {};
+static_assert(sized_and_iterable<std::vector<int>>::value, "size + begin 都有");
+static_assert(!sized_and_iterable<Weird>::value, "有 size 没有 begin");
+
 // ---------------------------------------------------------------------------
 // 3. if constexpr：编译期分支，替代大部分经典 SFINAE
 // ---------------------------------------------------------------------------
@@ -128,6 +148,13 @@ int score_of(T value) {
     return static_cast<int>(value) * 2;
 }
 
+// SFINAE 旧写法：两个互补约束的孪生重载（if constexpr 出现前的标准形状）。
+// 条件互补保证任何类型恰好命中一个；int = 0 非类型参数用于区分两个函数模板。
+template <typename T, std::enable_if_t<std::is_integral_v<T>, int> = 0>
+std::string describe_sfinae(const T& value) { return "integral:" + std::to_string(value); }
+template <typename T, std::enable_if_t<!std::is_integral_v<T>, int> = 0>
+std::string describe_sfinae(const T&) { return "other"; }  // 不用参数就不命名
+
 // tag dispatch：用类型标签选择实现，运行期零开销。
 struct forward_tag {};
 struct random_access_tag {};
@@ -148,6 +175,10 @@ auto category_of(Iter) {
 void sfinae_and_dispatch() {
     REQUIRE(score_of(21) == 42);
     // score_of(1.5); 编译错误：enable_if 把浮点类型从候选里移除。
+
+    // 孪生重载版：与 if constexpr 版行为一致
+    REQUIRE(describe_sfinae(21) == "integral:21");
+    REQUIRE(describe_sfinae(1.5) == "other");
 
     std::vector<int> v{1, 2, 3};
     static_assert(

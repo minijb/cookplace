@@ -47,9 +47,76 @@ private:
 };
 ```
 
-这与第一章 RAII 的思路完全一致：资源（这里是「一个尚未收束的执行流」）的生命周期绑进对象。注意 `std::thread` 的构造函数是 `explicit` 的，所以守护类用变参构造代为创建线程，不能依赖隐式两步转换。
+### 1.1 `JoinGuard` 逐行拆解
 
-> ⚠️ `join()` 只能调用一次；重复调用或对已 join 的线程调用都会抛 `std::invalid_argument`。判断依据是 `joinable()`，不是「我觉得它结束了」。
+**构造**——变参成员模板，序号对应注释：
+
+```cpp
+class JoinGuard {
+public:
+    template <typename F, typename... Args>                // ① 成员函数模板
+    explicit JoinGuard(F&& entry, Args&&... args)          // ② explicit + 转发引用
+        : thread_(std::forward<F>(entry),                  // ③ 成员初始化列表
+                  std::forward<Args>(args)...) {}          //    逐个转发，直接启动线程
+```
+
+① 模板标在构造函数上而不是类上：`JoinGuard` 对任何可调用物（lambda、函数指针、仿函数）都保持同一个类型，不会产生 `JoinGuard<LambdaA>`、`JoinGuard<LambdaB>` 这样的异类——存进 `vector<JoinGuard>`（示例代码正是这么用的）不挑元素类型。
+
+② `explicit` 禁止隐式两步转换，只允许 `JoinGuard g(lambda);` 直接初始化，不允许 `JoinGuard g = lambda;`。`F&&` 与 `Args&&...` 是转发引用：既能绑左值也能绑右值，配合 `std::forward` 保住实参的值类别（右值触发移动，左值保持拷贝），语法就是 3 章（上）参数包一节的形状。
+
+③ 成员初始化列表把转发来的实参直接喂给 `thread_` 成员的构造函数——这也是唯一的选择：**`std::thread` 只能靠构造函数启动执行流**，不存在「先默认构造、再赋一个函数」的 API。这也是守护类用变参构造代为创建线程、而不是接收现成 `std::thread` 的原因。构造完成的瞬间，线程已经在跑了。
+
+**析构**——RAII 的收口点：
+
+```cpp
+    ~JoinGuard() {                                  // ④ 所有退出路径的必经之路
+        if (thread_.joinable()) {                   // ⑤ 还没收束才需要 join
+            thread_.join();                         // ⑥ 阻塞等待执行流结束
+        }
+    }
+```
+
+④ 析构函数是 RAII 的收口点：正常离开作用域、提前 `return`、异常展开，全部经过这里。手工 join 容易忘的路径，这里兑底。
+
+⑤ `joinable()` 为 `true` 表示这个对象「代表一个尚未收束的执行流」。实测（MSVC 19.50）为 `false` 的四种情形：默认构造的空线程、已经 join 过、已经 detach 过、被移动走之后。if 覆盖这些情形，析构才能无脑安全。
+
+⑥ `join()` 阻塞当前线程，直到执行流结束，然后与对象脱钩；只能成功一次。
+
+**拷贝与移动**——所有权语义：
+
+```cpp
+    JoinGuard(const JoinGuard&) = delete;            // ⑦ 禁止拷贝构造
+    JoinGuard& operator=(const JoinGuard&) = delete; // ⑧ 禁止拷贝赋值
+    JoinGuard(JoinGuard&& other) noexcept            // ⑨ 移动构造：所有权转移
+        : thread_(std::move(other.thread_)) {}
+private:
+    std::thread thread_;                             // ⑩ 唯一成员：被守护的资源
+};
+```
+
+⑦⑧ 两个守护对象不能拥有同一个执行流——否则两个析构各 join 一次，第二次对已收束的线程调 join 会抛异常。`= delete` 把这类误用挡在编译期。
+
+⑨ 移动构造把 `thread_` 的所有权转给新对象；实测被移走的 `other.thread_` 变成空线程、`joinable()` 为 `false`，其析构函数安全地什么都不做。`noexcept` 必不可少：`vector` 扩容搬家只在移动操作带 noexcept 时才敢用移动，否则退回拷贝——而拷贝已被 delete，直接编译失败。示例代码的 `vector<JoinGuard>` 正靠这一行撑起来的。
+
+⑩ 守护类只持有一个成员：被守护的资源本身。类不需要额外状态，只负责「析构时把执行流收束」。
+
+用起来只有几行（示例代码的两种用法）：
+
+```cpp
+JoinGuard worker([&result, &result_mutex] { /* ... */ });   // 构造：线程立即启动
+// ...主线程继续做自己的事...
+}                                     // 作用域结束：析构 → join
+
+std::vector<JoinGuard> workers;       // 一组线程
+workers.emplace_back([&guarded, &mutex] { /* ... */ });
+}                                     // vector 析构 → 每个 JoinGuard 析构 → 逐个 join
+```
+
+两点实测边界（MSVC 19.50）：类没有移动赋值——析构函数与已删除的拷贝赋值都会阻止移动赋值的隐式生成，`g2 = std::move(g1)` 编译不过（`error C2280：尝试引用已删除的函数`）。对守护类这是可接受的限制：构造后不需要换绑线程。
+
+这与第一章 RAII 的思路完全一致：资源（这里是「一个尚未收束的执行流」）的生命周期绑进对象——构造即启动，析构即收束。
+
+> ⚠️ `join()` 只能调用一次；对不可 join 的线程（已 join、已 detach、空线程）调用会抛 `std::system_error`（错误条件 `invalid_argument`，注意不是 `std::invalid_argument` 类型本身）。判断依据是 `joinable()`，不是「我觉得它结束了」。
 
 ## 2. 数据竞争：最小的错误，最深的坑
 
